@@ -5,9 +5,9 @@ import Navbar from "../Navbar/Navbar";
 export default function Header() {
   return (
     <div className=" flex h-fit lg:px-10 px-5 md:px-10 py-3 bg-[#212529] text-[#F9F9F9] ">
-      <div className="lg:w-[60%] w-[80%] flex justify-between items-center">
+      <div className="lg:w-[60%] w-[80%] flex justify-between items-center ">
         {/* logo */}
-        <div className="flex items-center relative lg:w-[30%] w-[100%] ">
+        <div className="flex items-center relative lg:w-[30%] w-[100%] lg:ml-5">
           <Logo />
         </div>
 

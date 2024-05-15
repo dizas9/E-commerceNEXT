@@ -1,6 +1,7 @@
 import { Inter, Open_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 const sans = Open_Sans({ subsets: ["latin"] });
@@ -15,7 +16,8 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={sans.className}>
         <Header />
-        {children}
+        <div className="min-h-16 border lg:mx-16 md:mx-10 flex-grow"> {children}</div>
+        <Footer />
       </body>
     </html>
   );

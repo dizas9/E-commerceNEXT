@@ -7,7 +7,14 @@ module.exports = {
   ],
   theme: {
     extend: {
-      
+      transitionProperty: {
+        height: "height",
+      },
+      transitionDuration: {
+        slow: "2s",
+        medium: "1s",
+        fast: "0.3s",
+      },
     },
   },
   plugins: [],

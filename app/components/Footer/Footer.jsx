@@ -20,7 +20,7 @@ export default function Footer() {
   ];
   return (
     <div className=" bg-[#212529] h-fit w-full">
-      <div className="h-full  lg:mx-16 md:mx-10 mx-3 py-2 flex flex-col lg:flex-row gap-2">
+      <div className="h-full  lg:m-16 md:mx-10 mx-3 py-2 flex flex-col lg:flex-row gap-2">
         {/* logo + company */}
         <div className=" flex items-baseline justify-between lg:w-1/2">
           <div className="w-1/2">

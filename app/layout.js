@@ -16,7 +16,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={sans.className}>
         <Header />
-        <div className="min-h-16 border lg:mx-16 md:mx-10 flex-grow"> {children}</div>
+        <div className="min-h-16 lg:mx-16 md:mx-10 flex-grow"> {children}</div>
         <Footer />
       </body>
     </html>

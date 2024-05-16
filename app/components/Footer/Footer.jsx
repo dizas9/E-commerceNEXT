@@ -20,9 +20,9 @@ export default function Footer() {
   ];
   return (
     <div className=" bg-[#212529] h-fit w-full">
-      <div className="h-full  lg:m-16 md:mx-10 mx-3 py-2 flex flex-col lg:flex-row gap-2">
+      <div className="h-full  lg:m-16 md:mx-10 mx-3 py-2 flex flex-col lg:flex-row gap-4 ">
         {/* logo + company */}
-        <div className=" flex items-baseline justify-between lg:w-1/2">
+        <div className=" flex items-baseline justify-between lg:w-1/2 gap-4 md:gap-7 lg:gap-7">
           <div className="w-1/2">
             <div className="flex items-center relative  w-[100%] lg:ml-5 text-white ">
               <Logo />
@@ -40,7 +40,13 @@ export default function Footer() {
               {/* Social Icons */}
               <div className="flex gap-7 items-center">
                 {socialIcon.map((item, idx) => (
-                  <Image key={idx} src={item.src} alt="social" width={15} height={15} />
+                  <Image
+                    key={idx}
+                    src={item.src}
+                    alt="social"
+                    width={15}
+                    height={15}
+                  />
                 ))}
               </div>
             </div>
@@ -58,7 +64,7 @@ export default function Footer() {
         </div>
 
         {/* account + Customer */}
-        <div className="flex items-baseline justify-between lg:w-1/2">
+        <div className="flex items-baseline justify-between lg:w-1/2 gap-4 md:gap-7">
           <div className="w-1/2">
             <p className="text-lg text-white font-semibold">My Account</p>
             <div className="flex flex-col gap-2 mt-2">

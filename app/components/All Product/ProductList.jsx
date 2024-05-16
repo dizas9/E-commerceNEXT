@@ -9,18 +9,20 @@ import ProductSkeleton from "../Skeleton/ProductSkeleton";
 export default function ProductList({ listStyle }) {
   const [product, setProduct] = useState([]);
   const [errorMsg, setErrMsg] = useState();
+const [cartItem, setCartItem] = useState(() => {
+  const cartItemData = localStorage.getItem("cartItem");
+  return cartItemData ? JSON.parse(cartItemData) : [];
+});
   const [deviceWidth, setDeviceWidth] = useState(
     typeof window !== "undefined" ? window.innerWidth : 0
   );
   const [currentPage, setCurrentPage] = useState(0);
 
-  console.log("product, error", product, errorMsg);
-
   //fetch froduct in client side
   useEffect(() => {
     const fetchItems = () => {
       axios
-        .get("https://fakestoreapi.com/products/#")
+        .get("https://fakestoreapi.com/products")
         .then((res) => {
           if (res.status === 200) {
             setProduct(res.data);
@@ -71,6 +73,22 @@ export default function ProductList({ listStyle }) {
   }
   const offset = currentPage * itemsPerPage;
   const currentPageItems = product.slice(offset, offset + itemsPerPage);
+
+  /****
+   * Add to Cart handler
+   */
+
+  const addToCartHandler = (data) => {
+    setCartItem((prev) => {
+      const updatedCart = [...prev, data];
+      const uniqueItem = [...new Set(updatedCart)];
+      localStorage.setItem("cartItem", JSON.stringify(uniqueItem));
+      window.dispatchEvent(new Event("storage"));
+      return updatedCart;
+      
+    });
+  };
+
   return (
     <>
       {product.length === 0 && !errorMsg && (
@@ -95,6 +113,8 @@ export default function ProductList({ listStyle }) {
                         ? "30%"
                         : "48%"
                       : "100%",
+                  height:
+                    listStyle === "List" && deviceWidth <= 600 ? "10rem" : "",
                   transition: idx === 0 ? "width 0.3s ease-in" : " ",
                 }}
                 key={idx}
@@ -112,7 +132,7 @@ export default function ProductList({ listStyle }) {
                         : "h-full"
                     } flex  items-center ${
                       listStyle === "Grid" ? "w-full" : "w-1/2"
-                    } border`}
+                    }`}
                   >
                     <div className="w-full h-full relative ">
                       <Image
@@ -134,7 +154,7 @@ export default function ProductList({ listStyle }) {
                   >
                     {/* title */}
                     <p className="text-[#212529">
-                      {item.title.substring(0, 25)}...
+                      {item.title.substring(0, 20)}...
                     </p>
                     {/* rating + review */}
                     <div className="flex flex-col">
@@ -155,7 +175,10 @@ export default function ProductList({ listStyle }) {
                       <p className="text-[#F2415A] lg:text-xl text-lg">
                         ${item.price}
                       </p>
-                      <button className="text-white bg-black p-1 text-sm lg:text-lg rounded-md">
+                      <button
+                        className="text-white bg-black p-1 text-sm lg:text-lg rounded-md"
+                        onClick={() => addToCartHandler(item)}
+                      >
                         Add To Cart
                       </button>
                     </div>

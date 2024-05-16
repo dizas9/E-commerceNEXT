@@ -12,7 +12,7 @@ export default function ProductList({ listStyle }) {
   const [deviceWidth, setDeviceWidth] = useState(window.innerWidth);
   const [currentPage, setCurrentPage] = useState(0);
 
-  console.log("product, error" ,product , errorMsg)
+  console.log("product, error", product, errorMsg);
 
   //fetch froduct in client side
   useEffect(() => {
@@ -139,6 +139,7 @@ export default function ProductList({ listStyle }) {
                       <span className="">
                         <Image
                           src={"/images/star.svg"}
+                          alt="Start"
                           width={100}
                           height={60}
                         />
@@ -149,7 +150,9 @@ export default function ProductList({ listStyle }) {
                     </div>
                     {/* price + add cart button */}
                     <div className="lg:flex-row md:flex-row flex flex-col justify-between lg:items-baseline items-start  w-full">
-                      <p className="text-[#F2415A] lg:text-xl text-lg">${item.price}</p>
+                      <p className="text-[#F2415A] lg:text-xl text-lg">
+                        ${item.price}
+                      </p>
                       <button className="text-white bg-black p-1 text-sm lg:text-lg rounded-md">
                         Add To Cart
                       </button>
@@ -166,17 +169,32 @@ export default function ProductList({ listStyle }) {
         <div className=" w-full h-fit flex justify-center">
           <div className="flex items-baseline">
             <button onClick={() => setCurrentPage(0)}>
-              <Image src={"/images/start.svg"} width={10} height={10} />
+              <Image
+                src={"/images/start.svg"}
+                alt="start"
+                width={10}
+                height={10}
+              />
             </button>
             <div className="w-fit ">
               {/* React paginate */}
 
               <ReactPaginate
                 previousLabel={
-                  <Image src={"/images/previous.svg"} width={10} height={10} />
+                  <Image
+                    src={"/images/previous.svg"}
+                    alt="Img"
+                    width={10}
+                    height={10}
+                  />
                 }
                 nextLabel={
-                  <Image src={"/images/next.svg"} width={10} height={10} />
+                  <Image
+                    src={"/images/next.svg"}
+                    alt="Img"
+                    width={10}
+                    height={10}
+                  />
                 }
                 containerClassName="containerClassName"
                 pageClassName="pageClassName"
@@ -197,7 +215,7 @@ export default function ProductList({ listStyle }) {
                 setCurrentPage(Math.ceil(product.length / itemsPerPage) - 1)
               }
             >
-              <Image src={"/images/end.svg"} width={10} height={10} />
+              <Image src={"/images/end.svg"} alt="Img" width={10} height={10} />
             </button>
           </div>
         </div>

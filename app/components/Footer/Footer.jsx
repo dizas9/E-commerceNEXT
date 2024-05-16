@@ -40,7 +40,7 @@ export default function Footer() {
               {/* Social Icons */}
               <div className="flex gap-7 items-center">
                 {socialIcon.map((item, idx) => (
-                  <Image key={idx} src={item.src} width={15} height={15} />
+                  <Image key={idx} src={item.src} alt="social" width={15} height={15} />
                 ))}
               </div>
             </div>

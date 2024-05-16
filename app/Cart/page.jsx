@@ -21,15 +21,14 @@ export default function Cart() {
           <div className="w-full h-fit flex gap-2 items-baseline">
             <input type="checkbox" />
             <p className="text-sm text-[#503838b5]">
-              I've read and agree to the  
+              I've read and agree to the
               <Link className="underline font-semibold" href={"#"}>
                 terms and conditions
               </Link>
-              , 
               <Link className="underline font-semibold" href={"#"}>
                 refund policy
               </Link>
-                & 
+  
               <Link className="underline font-semibold" href={"#"}>
                 privacy policy
               </Link>

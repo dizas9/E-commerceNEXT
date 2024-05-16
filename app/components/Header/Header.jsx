@@ -43,12 +43,14 @@ export default function Header() {
           <Image
             src={"/images/Menu.svg"}
             width={30}
+            alt="Menu"
             height={35}
             onClick={handleClick}
           />
         ) : (
           <Image
             src={"/images/cross.svg"}
+            alt="cross"
             width={20}
             height={35}
             onClick={handleClick}

@@ -4,7 +4,7 @@ export default function Cart() {
   return (
     <>
       <div className="w-full border min-h-[10%] flex flex-col px-3 py-5 gap-7 items-center">
-        <div className="border border-[#212529] rounded-md min-h-16 w-full lg:w-2/3 p-5 flex flex-col gap-3">
+        <div className="border border-[#212529] rounded-md min-h-16 w-full lg:w-[90%] p-5 flex flex-col gap-3">
           <p className="w-full text-white bg-black text-center rounded-lg">
             Selected Product
           </p>
@@ -39,7 +39,7 @@ export default function Cart() {
           {/* checkout button */}
           <div className="w-full h-fit flex justify-end">
             {" "}
-            <button className="text-white bg-black p-1 text-sm lg:text-lg rounded-md">
+            <button className="text-white bg-black p-1  rounded-md">
               Checkout Now
             </button>
           </div>

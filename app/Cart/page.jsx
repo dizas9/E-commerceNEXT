@@ -20,18 +20,14 @@ export default function Cart() {
           {/* agree terms & condition textBox */}
           <div className="w-full h-fit flex gap-2 items-baseline">
             <input type="checkbox" />
-            <p className="text-sm text-[#503838b5]">
-              I've read and agree to the
-              <Link className="underline font-semibold" href={"#"}>
-                terms and conditions
-              </Link>
-              <Link className="underline font-semibold" href={"#"}>
-                refund policy
-              </Link>
-  
-              <Link className="underline font-semibold" href={"#"}>
-                privacy policy
-              </Link>
+            <p className="text-sm text-[#503838b5] flex gap-1">
+              I have read and agree to the
+              <span className="underline font-semibold">
+                terms and conditions,
+              </span>
+              <span className="underline font-semibold">refund policy</span>
+              and 
+              <span className="underline font-semibold">privacy policy</span>
             </p>
           </div>
 

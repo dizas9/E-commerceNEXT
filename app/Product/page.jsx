@@ -7,9 +7,9 @@ import Search from "../components/Search/Search";
 import ProductList from "../components/All Product/ProductList";
 
 
-export default function Product({ initialData }) {
+export default function Product() {
   const [listStyle, setListStyle] = useState("Grid");
-  const [productData, setProductData] = useState(initialData);
+
 
   // Grid or ListView handler
   const listStyleClick = (name) => {

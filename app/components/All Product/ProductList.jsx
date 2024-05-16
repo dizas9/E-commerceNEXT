@@ -9,7 +9,9 @@ import ProductSkeleton from "../Skeleton/ProductSkeleton";
 export default function ProductList({ listStyle }) {
   const [product, setProduct] = useState([]);
   const [errorMsg, setErrMsg] = useState();
-  const [deviceWidth, setDeviceWidth] = useState(window.innerWidth);
+  const [deviceWidth, setDeviceWidth] = useState(
+    typeof window !== "undefined" ? window.innerWidth : 0
+  );
   const [currentPage, setCurrentPage] = useState(0);
 
   console.log("product, error", product, errorMsg);

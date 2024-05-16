@@ -3,12 +3,9 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 
 export default function CartItem() {
-  const [cartProduct, setCartProduct] = useState(() => {
-    const cartItemData = localStorage.getItem("cartItem");
-    return cartItemData ? JSON.parse(cartItemData) : [];
-  });
+  const [cartProduct, setCartProduct] = useState([]);
 
-  console.log("Item, Item", cartProduct);
+  
   useEffect(() => {
     const updateCartFromLocalStorage = () => {
       const cartItemData = localStorage.getItem("cartItem");
@@ -20,6 +17,15 @@ export default function CartItem() {
       window.removeEventListener("storage", updateCartFromLocalStorage);
     };
   }, []);
+
+
+   useEffect(() => {
+     // Load cart items from localStorage on client side
+     const cartItemData = localStorage.getItem("cartItem");
+     if (cartItemData) {
+       setCartProduct(JSON.parse(cartItemData));
+     }
+   }, []);
 
   //update State
 

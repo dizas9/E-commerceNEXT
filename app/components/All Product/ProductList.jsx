@@ -9,10 +9,8 @@ import ProductSkeleton from "../Skeleton/ProductSkeleton";
 export default function ProductList({ listStyle }) {
   const [product, setProduct] = useState([]);
   const [errorMsg, setErrMsg] = useState();
-const [cartItem, setCartItem] = useState(() => {
-  const cartItemData = localStorage.getItem("cartItem");
-  return cartItemData ? JSON.parse(cartItemData) : [];
-});
+  const [cartItem, setCartItem] = useState([]);
+
   const [deviceWidth, setDeviceWidth] = useState(
     typeof window !== "undefined" ? window.innerWidth : 0
   );
@@ -78,6 +76,14 @@ const [cartItem, setCartItem] = useState(() => {
    * Add to Cart handler
    */
 
+  useEffect(() => {
+    // Load cart items from localStorage on client side
+    const cartItemData = localStorage.getItem("cartItem");
+    if (cartItemData) {
+      setCartItem(JSON.parse(cartItemData));
+    }
+  }, []);
+
   const addToCartHandler = (data) => {
     setCartItem((prev) => {
       const updatedCart = [...prev, data];
@@ -85,7 +91,6 @@ const [cartItem, setCartItem] = useState(() => {
       localStorage.setItem("cartItem", JSON.stringify(uniqueItem));
       window.dispatchEvent(new Event("storage"));
       return updatedCart;
-      
     });
   };
 

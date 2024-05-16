@@ -6,4 +6,28 @@
   body {
     @apply flex flex-col min-h-screen  gap-0;
   }
+
+  .containerClassName {
+    @apply flex justify-center items-baseline pl-0.5 pr-0 ;
+  }
+  .pageClassName {
+    @apply mx-0 my-[12px] list-none;
+  }
+  .pageLinkClassName {
+    @apply cursor-pointer px-[8px] py-[12px] rounded-md bg-[#fff] text-[#333];
+  }
+  .activeClassName {
+    @apply font-bold;
+  }
+
+  .activeLinkClassName {
+    @apply bg-[#007bff] text-[#fff] border border-[#007bff];
+  }
+  .previousClassName,
+  .nextClassName {
+    @apply cursor-pointer px-[8px] py-[12px] rounded-md bg-[#fff] text-[#333] mr-[10px] list-none border pb-0 pt-0 m-0 border-none;
+  }
+  .disabled{
+    @apply opacity-[0.5] pointer-events-none;
+  }
 }

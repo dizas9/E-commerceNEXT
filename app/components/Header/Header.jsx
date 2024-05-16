@@ -59,7 +59,7 @@ export default function Header() {
 
       {click && (
         <div
-          className={`absolute z-50 bg-[#0000ff67] md:top-20 top-16 md:w-[30%] w-[25%] md:right-10 right-5 h-fit lg:hidden flex flex-col items-center`}
+          className={`absolute z-50 bg-[#02020896] md:top-20 top-16 md:w-[30%] w-[25%] md:right-10 right-5 h-fit lg:hidden flex flex-col items-center`}
         >
           {menu.map((item, idx) => (
             <Link

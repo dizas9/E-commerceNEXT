@@ -76,13 +76,12 @@ export default function ProductList({ listStyle }) {
    * Add to Cart handler
    */
 
-  useEffect(() => {
-    // Load cart items from localStorage on client side
-    const cartItemData = localStorage.getItem("cartItem");
-    if (cartItemData) {
-      setCartItem(JSON.parse(cartItemData));
-    }
-  }, []);
+  // useEffect(() => {
+  //   const cartItemData = localStorage.getItem("cartItem");
+  //   if (cartItemData) {
+  //     setCartItem(JSON.parse(cartItemData));
+  //   }
+  // }, []);
 
   const addToCartHandler = (data) => {
     const getItem = localStorage.getItem("cartItem");

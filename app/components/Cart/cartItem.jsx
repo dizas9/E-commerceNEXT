@@ -52,21 +52,18 @@ export default function CartItem() {
       price += item.price;
     });
 
-    setTotalPrice(parseFloat(price));
+    setTotalPrice(price.toFixed(2));
   };
 
   useEffect(() => {
     calculatePrice();
   }, [cartProduct]);
 
-
-
-
   return (
     <>
-      <div className="w-full  min-h-[10%] flex flex-col px-3 py-5 gap-7 items-center">
+      <div className="w-full  min-h-[10%] flex flex-col px-3 py-20 gap-7 items-center">
         <div className="border border-[#212529] rounded-md min-h-16 w-full lg:w-[90%] md:w-[50%] p-5 flex flex-col gap-3">
-          <p className="w-full text-white bg-black text-center rounded-lg p-1">
+          <p className="w-full text-white bg-black text-center rounded-md p-1 text-sm lg:text-lg">
             Selected Product
           </p>
 
@@ -86,8 +83,9 @@ export default function CartItem() {
                     objectFit="contain"
                   />
                 </div>
+
                 {/* details */}
-                <div className="flex flex-col  lg:justify-around">
+                <div className="flex flex-col  lg:justify-around w-[80%]">
                   <p className="">{item.title.substring(0, 20)}...</p>
 
                   {/* rating + review */}
@@ -110,7 +108,6 @@ export default function CartItem() {
                 </div>
 
                 {/* delete cart item */}
-
                 <Image
                   src={"/images/delete.svg"}
                   alt="delete"
@@ -128,23 +125,20 @@ export default function CartItem() {
           </div>
 
           {/* agree terms & condition textBox */}
-          <div className="w-full h-fit flex gap-2 items-baseline">
+          <div className="w-full h-fit flex gap-2 items-baseline text-xs">
             <input type="checkbox" />
-            <p className="text-sm text-[#503838b5] flex gap-1">
-              I have read and agree to the
-              <span className="underline font-semibold">
-                terms and conditions,
-              </span>
-              <span className="underline font-semibold">refund policy</span>
-              and
-              <span className="underline font-semibold">privacy policy</span>
-            </p>
+            <div className="text-xs text-[#503838b5] flex  flex-wrap gap-1">
+              <p>I have read and agree to the </p>
+              <p className="underline font-bold"> terms and conditions ,</p>
+              <p className="underline font-bold">refund policy</p> and
+              <p className="underline font-bold"> privacy policy</p>
+            </div>
           </div>
 
           {/* checkout button */}
           <div className="w-full h-fit flex justify-end">
             {" "}
-            <button className="text-white bg-black p-1  rounded-md">
+            <button className="text-white bg-black p-1  rounded-md text-sm lg:text-lg">
               Checkout Now
             </button>
           </div>

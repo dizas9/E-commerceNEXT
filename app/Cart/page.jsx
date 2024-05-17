@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import CartItem from "../components/Cart/cartItem";
 
 export default function Cart() {
-  const [width, setWidth] = useState("50%");
+  const [width, setWidth] = useState("70%");
   const [opacity, setOpacity] = useState(0);
   const [deviceWidth, setDeviceWidth] = useState(
     typeof window !== "undefined" ? window.innerWidth : 0

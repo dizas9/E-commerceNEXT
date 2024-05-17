@@ -83,18 +83,22 @@ export default function ProductList({ listStyle }) {
   //   }
   // }, []);
 
-  const addToCartHandler = (data) => {
-    const getItem = localStorage.getItem("cartItem");
-    setCartItem(JSON.parse(getItem));
-    console.log("cart in Product", cartItem);
-    setCartItem((prev) => {
-      const updatedCart = [...prev, data];
-      const uniqueItem = [...new Set(updatedCart)];
-      localStorage.setItem("cartItem", JSON.stringify(uniqueItem));
-      window.dispatchEvent(new Event("storage"));
-      return updatedCart;
-    });
-  };
+ const addToCartHandler = (data) => {
+   const getItem = localStorage.getItem("cartItem");
+   const parsedItem = getItem ? JSON.parse(getItem) : [];
+   setCartItem(parsedItem);
+   setCartItem((prev) => {
+     if (!prev) {
+       prev = [];
+     }
+     const updatedCart = [...prev, data];
+     const uniqueItem = [...new Set(updatedCart)];
+     localStorage.setItem("cartItem", JSON.stringify(uniqueItem));
+     window.dispatchEvent(new Event("storage"));
+     return uniqueItem;
+   });
+ };
+
 
   return (
     <>
@@ -198,7 +202,7 @@ export default function ProductList({ listStyle }) {
 
       {/* Pagination */}
       {product.length !== 0 && (
-        <div className=" w-full h-fit flex justify-center">
+        <div className=" w-full h-fit flex justify-center lg:justify-end md:justify-end pr-7">
           <div className="flex items-baseline">
             <button onClick={() => setCurrentPage(0)}>
               <Image

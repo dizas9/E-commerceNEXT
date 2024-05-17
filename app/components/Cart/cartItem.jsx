@@ -37,6 +37,8 @@ export default function CartItem() {
     //create new array without 'id'
     const updateCart = cartProduct.filter((item) => item.id !== id);
 
+    //delete existing storage
+    localStorage.removeItem("cartItem");
     //update local storage
     localStorage.setItem("cartItem", JSON.stringify(updateCart));
 

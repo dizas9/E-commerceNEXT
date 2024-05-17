@@ -85,6 +85,9 @@ export default function ProductList({ listStyle }) {
   }, []);
 
   const addToCartHandler = (data) => {
+    const getItem = localStorage.getItem("cartItem");
+    setCartItem(JSON.parse(getItem));
+    console.log("cart in Product", cartItem);
     setCartItem((prev) => {
       const updatedCart = [...prev, data];
       const uniqueItem = [...new Set(updatedCart)];

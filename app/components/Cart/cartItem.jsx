@@ -4,8 +4,8 @@ import { useState, useEffect } from "react";
 
 export default function CartItem() {
   const [cartProduct, setCartProduct] = useState([]);
+  const [totalPrice, setTotalPrice] = useState(0);
 
-  
   useEffect(() => {
     const updateCartFromLocalStorage = () => {
       const cartItemData = localStorage.getItem("cartItem");
@@ -18,20 +18,19 @@ export default function CartItem() {
     };
   }, []);
 
-
-   useEffect(() => {
-     // Load cart items from localStorage on client side
-     const cartItemData = localStorage.getItem("cartItem");
-     if (cartItemData) {
-       setCartProduct(JSON.parse(cartItemData));
-     }
-   }, []);
+  useEffect(() => {
+    // Load cart items from localStorage on client side
+    const cartItemData = localStorage.getItem("cartItem");
+    if (cartItemData) {
+      setCartProduct(JSON.parse(cartItemData));
+    }
+  }, []);
 
   //update State
 
-  function UpdateCart(data){
+  function UpdateCart(data) {
     setCartProduct(data);
-  };
+  }
 
   // delete cart handler
   const deleteCartItem = (id) => {
@@ -43,6 +42,23 @@ export default function CartItem() {
 
     UpdateCart(updateCart);
   };
+
+  //calculate total price
+  const calculatePrice = () => {
+    let price = 0;
+    cartProduct.forEach((item) => {
+      price += item.price;
+    });
+
+    setTotalPrice(parseFloat(price));
+  };
+
+  useEffect(() => {
+    calculatePrice();
+  }, [cartProduct]);
+
+
+
 
   return (
     <>
@@ -106,7 +122,7 @@ export default function CartItem() {
 
           {/* total cost */}
           <div className="w-full h-fit text-right font-semibold">
-            Total : $18.89
+            Total : ${totalPrice}
           </div>
 
           {/* agree terms & condition textBox */}

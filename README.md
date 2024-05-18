@@ -1,4 +1,8 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Tech Stack
+
+- **Framework/Library:** [Next14](https://react.dev/)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com)
+- **Hosting:** [Vercel](https://vercel.com)
 
 ## Getting Started
 

@@ -1,5 +1,4 @@
-
-import Product from "./Product/page";
+import Product from "./components/Product/Product";
 import CartItem from "./components/Cart/cartItem";
 
 export default function Home() {
